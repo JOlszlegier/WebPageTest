@@ -174,10 +174,12 @@ const attributeSettingMobile = (card,i) =>{
 
 const cardListener = (card,i,array) =>{
     card.addEventListener('click', e =>{
-        clickCounter();
-        card.setAttribute('src',array[i].img)
-        clickedCards.push(namesDeck[i]);
-        clickedCardsId.push(i);
+        if(clickedCards.length !==2){
+            clickCounter();
+            card.setAttribute('src',array[i].img)
+            clickedCards.push(namesDeck[i]);
+            clickedCardsId.push(i);
+        }
         if(clickedCards.length === 2) {
             setTimeout(scoreCheck,600);
         }
