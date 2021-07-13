@@ -179,7 +179,7 @@ const cardListener = (card,i,array) =>{
         clickedCards.push(namesDeck[i]);
         clickedCardsId.push(i);
         if(clickedCards.length === 2) {
-            setTimeout(scoreCheck,300);
+            setTimeout(scoreCheck,1000);
         }
     })
 }
