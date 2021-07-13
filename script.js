@@ -8,6 +8,7 @@ let namesDeck = []
 let deck = 0;
 let mobileMode = 0;
 let tileName = 0;
+let filteredArray =[];
 const mobile = window.matchMedia( "(max-width: 430px)" )
 
 const deckArray = [
@@ -178,9 +179,10 @@ const cardListener = (card,i,array) =>{
             card.setAttribute('src',array[i].img)
             clickedCards.push(namesDeck[i]);
             clickedCardsId.push(i);
+            console.log(filteredArray);
         }
         if(clickedCards.length === 2) {
-            setTimeout(scoreCheck,300);
+            setTimeout(scoreCheck,500);
         }
     })
 }
@@ -203,7 +205,8 @@ const scoreCheck = () =>{
         cards[clickedCardsId[1]].setAttribute('src',tileName);
     }
     arrayErase();
-    if(doneCards.length === deckArray.length){
+    filteredArray = doneCards.filter(e => e != null);
+    if(filteredArray.length === deckArray.length){
         alert("You won !");
         reset();
     }
